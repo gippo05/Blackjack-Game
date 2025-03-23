@@ -1,5 +1,5 @@
-let firstCard = 10;
-let secondCard = 4;
+let firstCard = randomCard();
+let secondCard = randomCard();
 let cards = [firstCard, secondCard];
 let sum = firstCard + secondCard;
 let isAlive = true;
@@ -8,6 +8,21 @@ let message = "";
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
+
+
+function randomCard() {
+    let randomNumber =  Math.floor(Math.random() * 13) + 1;
+
+    if(randomNumber === 1){
+        return 11;
+    } else if (randomNumber > 10){
+        return 10;
+    } else {
+        return randomNumber;
+    }
+
+    
+}
 
 
 function startGame(){
@@ -37,10 +52,11 @@ function renderGame(){
 
 function newCard(){
     console.log("Drawing out a new card in the deck!");
-    let card = 5;
+    let card = randomCard();
     sum += card;
     cards.push(card);
     console.log(cards);
 
     renderGame();
 }
+
